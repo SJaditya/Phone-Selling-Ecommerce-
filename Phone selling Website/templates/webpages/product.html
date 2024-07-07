@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="{% static 'css/product_style.css' %}">
+</head>
+<style>
+    .button1 {
+        border: none;
+        background-color:#8a2be2;
+        color: #FFFFFF;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+    
+</style>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <nav>
+<div class="icon">
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+                <ul>
+                    <li><a href="/" target="_blank">Home</a></li>
+                    <li><a href="{% url 'product' %}" target="_blank">Products</a></li>
+                    <li><a href="{% url 'about' %}" target="_blank">About</a></li>
+                    <li><a href="contact" target="_blank">Contact</a></li>
+                </ul>
+                <div class="logo">
+                    <img src="{% static 'assets/smartpx white.png' %}" alt="" width="70px" height="63px">
+                    
+                </div>
+                <div class="button">
+                    {% if user.is_authenticated %}
+                    <button type="button" class="btn"><a href="{% url 'dashboard' %}" target="_blank"> Profile</a></button>
+                    <button type="button" class="btnsec"><a href="{% url 'logout' %}" target="_blank"> logout</a></button>
+                    {% else %}
+                    <button type="button" class="btn"><a href="{% url 'login' %}" target="_blank"> Login</a></button>
+                    <button type="button" class="btnsec"><a href="{% url 'sign_up' %}" target="_blank"> Sign up</a></button>
+                    {% endif %}
+                </div>
+
+            </nav>
+            
+        </div>
+
+    </header>
+    <main>
+        <div class="search">
+            <form method="GET" action="{% url 'search' %}">
+                <input type="text" placeholder="Search.." name="keyword">
+                 <button type="submit">
+                    <img src="{% static 'assets/search.png' %}" alt="" width="20px">
+                 </button>
+              </form>
+        </div>
+        <div class="prodcontainer">
+            <div class="card">
+                <h2 class="my-2">Latest Launch</h2>
+                <div class="cards">
+                    {% for prod in product  %}
+                    <div class="card-items">
+                        <a href="{% url 'phone_details' prod.id %}">
+                            <img src="{% static 'assets/phone1.png' %}" alt="" width="300px" height="300px">
+                        </a>
+                        <div class="lines">
+                            <p class="text-center my-1">{{prod.prod_name}}</p>
+                            <p class="text-center my-1">{{prod.disp_name}}</p>
+                            <p class="text-center my-1">{{prod.price}}</p>
+                        </div>
+                        <button type="button" class="button1" onclick='location.href="{% url 'phone_details' prod.id %}"'>Know Details</button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="my-2">Best Sellers</h2>
+                <div class="cards">
+                    {% for bs in best_seller  %}
+                    <div class="card-items">
+                        <a href="{% url 'phone_details' bs.id %}">
+                            <img src="{% static 'assets/phone2.png' %}" alt="" width="300px" height="300px">
+                        </a>
+                        <div class="lines">
+                            <p class="text-center my-1">{{bs.prod_name}}</p>
+                            <p class="text-center my-1">{{bs.disp_name}}</p>
+                            <p class="text-center my-1">{{bs.price}}</p>
+                        </div>
+                        <button type="button" class="button1">Know Details</button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="my-2">Hot Deals</h2>
+                <div class="cards">
+                    {% for hotd in hot_deals %}
+                    <div class="card-items">
+                        <a href="{% url 'phone_details' hotd.id %}">
+                            <img src="{% static 'assets/phone1.png' %}" alt="" width="300px" height="300px">
+                        </a>
+                        <div class="lines">
+                            <p class="text-center my-1">{{hotd.prod_name}}</p>
+                            <p class="text-center my-1">{{hotd.disp_name}}</p>
+                            <p class="text-center my-1">{{hotd.discount_price}}</p>
+                            <strike>
+                                <p class="text-center my-1">{{hotd.price}}</p>
+                            </strike>
+                        </div>
+                        <button type="button" class="button1">know Details</button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="flex-all-center">
+        <p>Copyright &copy; 2022 all rights reserved smartPx</p>
+    </footer>
+</body>
+
+</html>

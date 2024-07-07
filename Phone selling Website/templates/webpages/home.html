@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+</head>
+<body>
+    <header>
+        <header>
+            <div class="navbar">
+                <nav>
+                    <div class="icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li><a href="/" target="_blank">Home</a></li>
+                        <li><a href="/product" target="_blank">Products</a></li>
+                        <li><a href="/about" target="_blank">About</a></li>
+                        <li><a href="/contact" target="_blank">Contact</a></li>
+                    </ul>
+                    <div class="logo">
+                        <img src="/assets/smartpx white.png" alt="" width="20px" height="20px">
+                        
+                    </div>
+                    <div class="button">
+                    
+                        <button type="button" class="btn"><a href="{% url 'dashboard' %}" target="_blank"> Profile</a></button>
+                        <button type="button" class="btnsec"><a href="{% url 'logout' %}" target="_blank"> logout</a></button>
+                    
+                        <button type="button" class="btn"><a href="{% url 'login' %}" target="_blank"> Login</a></button>
+                        <button type="button" class="btnsec"><a href="{% url 'sign_up' %}" target="_blank"> Sign up</a></button>
+                        
+                    </div>
+        
+                </nav>
+            </div>
+            </header>
+    </header>
+    <div class="owl-carousel owl-theme">
+        <div class="item">
+            <img src="/assets/caro2.jpg" class="img-fluid w-100" >
+            
+        </div>
+        <div class="item">
+            <img src="/assets/caro3.jpg" class="img-fluid w-100">
+        </div>
+        <div class="item">
+            <img src="/assets/caro4.jpg" class="img-fluid w-100">
+        </div>
+        <div class="item">
+            <img src="/assets/caro5.jpg" class="img-fluid w-100">
+        </div>
+    </div>
+    <div class="homecontainer">
+        <div class="container">
+            <div class="topic">
+                <h1>smartPx Application</h1>
+                <h2>The latest design in-hand to use the technology</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente beatae earum accusamus,
+                    laboriosam voluptas sint consequuntur optio culpa corporis magnam incidunt aliquam harum eum!
+                    Illo voluptas facilis ipsam quis hic laboriosam accusantium natus magnam?
+                </p>
+            </div>
+        </div>
+        <div class="imgcon">
+            <div class="image">
+                <img src="/assets/phone1.png" class="img1" alt="phone" width="400px" height="400px">
+                <img src="/assets/phone2.png " class="img2" alt="phone" width="450px" height="450px">
+                <img src="/assets/phone1.png" class="img3" alt="phone" width="400px" height="400px">
+            </div>
+</div>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:0,
+            nav:false,
+            dots:false,
+            autoplay:true,
+            autoplayTimeout:2000,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:1
+                }
+            }
+        })
+    </script>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/62cd8458b0d10b6f3e7bf77d/1g7pcpvf0';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <footer class="flex-all-center">
+        <p>Copyright &copy; 2022 all rights reserved smartPx</p>
+    </footer>
+</body>
+</html>

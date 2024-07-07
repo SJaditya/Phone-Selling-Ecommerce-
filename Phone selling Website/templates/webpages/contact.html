@@ -1,0 +1,79 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/contact_style.css' %}">
+</head>
+
+<body>
+    
+    <header>
+        <div class="navbar">
+            <nav>
+
+                <ul>
+                    <li><a href="/" target="_blank">Home</a></li>
+                    <li><a href="product" target="_blank">Products</a></li>
+                    <li><a href="about" target="_blank">About</a></li>
+                    <li><a href="contact" target="_blank">Contact</a></li>
+                </ul>
+                <div class="logo">
+                    <img src="{% static 'assets/smartpx white.png' %}" alt="" width="70px" height="63px">
+                    
+                </div>
+                <div class="button">
+                    {% if user.is_authenticated %}
+                    <button type="button" class="btn"><a href="{% url 'dashboard' %}" target="_blank"> Profile</a></button>
+                    <button type="button" class="btnsec"><a href="{% url 'logout' %}" target="_blank"> logout</a></button>
+                    {% else %}
+                    <button type="button" class="btn"><a href="{% url 'login' %}" target="_blank"> Login</a></button>
+                    <button type="button" class="btnsec"><a href="{% url 'sign_up' %}" target="_blank"> Sign up</a></button>
+                    {% endif %}
+                </div>
+
+            </nav>
+        
+        </div>
+
+    </header>
+    <main>
+        <div class="contactform">
+            <h1>Contact us for General Queries</h1>
+            <form method="POST" action={% url 'contct' %}>
+                {% csrf_token %}
+                <div class="query">
+                    <label for="clientname" class="form-label">Name</label>
+                    <input name="customer_name" class="form-control" placeholder="customer_name">
+                    <div id="emailHelp" class="form-text">
+                    </div>
+                </div>
+                <div class="query">
+                    <label for="clientemail" class="form-label">Email address</label>
+                    <input name="email" type="email" class="form-control" placeholder="email">
+                    <div id="emailHelp" class="form-text">We'll never share your email & phone no with anyone
+                        else.
+                    </div>
+                </div>
+                <div class="query">
+                    <label for="clientphone" class="form-label">Phone</label>
+                    <input name="phone" class="form-control" placeholder="phone">
+                </div>
+                <div class="form-group pt-2">
+                    <textarea name="enquiry" class="form-control" rows="3" placeholder="enquiry"></textarea>
+                  </div>
+                <button type="submit" class="btn-sm">Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer class="flex-all-center">
+        <p>Copyright &copy; 2022 all rights reserved smartPx</p>
+    </footer>
+
+</body>
+
+</html>
