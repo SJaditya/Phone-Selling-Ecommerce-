@@ -1,5 +1,5 @@
 # Phone-Selling-Ecommerce
-# Introduction
+* Introduction *
 The Phone Selling Website is an e-commerce platform built using Django, designed to facilitate the buying and selling of mobile phones. Hosted on AWS, the website provides an efficient and user-friendly interface for both administrators and customers.
 
 # Features
